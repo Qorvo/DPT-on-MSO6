@@ -21,5 +21,14 @@ See our [application note](http:somewhere.tek.com) for the detail.
 We tested the code and binary with the [NI-VISA](https://www.ni.com/en-us/support/downloads/drivers/download.ni-visa.html).
 * The [libusb](https://github.com/libusb/libusb) library enables a USB connection between your PC and the MSO scope.  See the [detail](https://pyvisa.readthedocs.io/projects/pyvisa-py/en/latest/installation.html#usb-resources-usb-instr-raw).  To use a USB I/F, please place a libusb file in your "PATH".
 
+## Usage
+
+Please read the [application note](http:somewhere.tek.com).
+
+## Note
+
+At first use of the software, it creats a copy of [license](https://github.com/MasashiNogawa/DPT-on-MSO6/blob/main/LICENSE) file in the same folder the program reside and requests to read the license, if no "LICENSE" file.
+From the second use and after, this won't happen as you keep the LICENSE file.
+
 
 ..end of README
