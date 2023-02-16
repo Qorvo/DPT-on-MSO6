@@ -8,7 +8,7 @@ This command-line script takes user inputs to generate DPT pulse sequence on you
 
 See our [application note](http:somewhere.tek.com) for the detail.
 
-The Windows binary is found in the "release" page in the right pane.
+The **Windows binary** is found in the [release](https://github.com/Qorvo/DPT-on-MSO6/releases) page in the right pane.
 
 ## Licenses
 
