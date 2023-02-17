@@ -4,7 +4,7 @@ import time
 import re
 import pyvisa
 
-verNum = "v1.01, Feb 16, 2023"
+verNum = "v1.02, Feb 16, 2023"
 mainAuthor = "Masashi Nogawa @ Qorvo"
 debug = 0
 
@@ -109,7 +109,7 @@ Greensboro, NC 27409
 8.6. Assignment. Licensee shall not assign or otherwise transfer any of its rights, or delegate or otherwise transfer any of its obligations or performance, under this Agreement, in each case whether voluntarily, involuntarily, by operation of law, or otherwise, without Qorvo's prior written consent. For purposes of the preceding sentence, and without limiting its generality, any merger, consolidation, or reorganization involving Licensee (regardless of whether Licensee is a surviving or disappearing entity) will be deemed to be a transfer of rights, obligations, or performance under this Agreement for which Qorvo's prior written consent is required. No delegation or other transfer will relieve Licensee of any of its obligations or performance under this Agreement. Any purported assignment, delegation, or transfer in violation of this Section 8.6 is void. This Agreement is binding upon and inures to the benefit of the parties hereto and their respective permitted successors and assigns.
 '''
 
-lfile = os.path.dirname(sys.argv[0]) + "\\LICENSE"
+lfile = os.path.dirname(sys.executable) + "\\LICENSE"
 
 if not os.path.isfile(lfile):
 
