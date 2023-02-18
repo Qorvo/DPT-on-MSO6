@@ -4,7 +4,7 @@ import time
 import re
 import pyvisa
 
-verNum = "v1.02, Feb 16, 2023"
+verNum = "v1.03, Feb 18, 2023"
 mainAuthor = "Masashi Nogawa @ Qorvo"
 debug = 0
 
@@ -109,7 +109,12 @@ Greensboro, NC 27409
 8.6. Assignment. Licensee shall not assign or otherwise transfer any of its rights, or delegate or otherwise transfer any of its obligations or performance, under this Agreement, in each case whether voluntarily, involuntarily, by operation of law, or otherwise, without Qorvo's prior written consent. For purposes of the preceding sentence, and without limiting its generality, any merger, consolidation, or reorganization involving Licensee (regardless of whether Licensee is a surviving or disappearing entity) will be deemed to be a transfer of rights, obligations, or performance under this Agreement for which Qorvo's prior written consent is required. No delegation or other transfer will relieve Licensee of any of its obligations or performance under this Agreement. Any purported assignment, delegation, or transfer in violation of this Section 8.6 is void. This Agreement is binding upon and inures to the benefit of the parties hereto and their respective permitted successors and assigns.
 '''
 
-lfile = os.path.dirname(sys.executable) + "\\LICENSE"
+
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+    lfile = os.path.dirname(sys.executable) + "\\LICENSE"
+else:
+    lfile = os.path.dirname(__file__) + "\\LICENSE"
+
 
 if not os.path.isfile(lfile):
 
@@ -191,6 +196,10 @@ if not((len(args) == 5) or (len(args) == 7)):
   msg = f"""
 Error:  wrong parameters
 """
+  if len(args) == 6:
+    msg = f"""
+Error: <Ton3> parameter is missing
+  """
   print(msg + use)
   rm.close()
   sys.exit(1)
@@ -354,4 +363,6 @@ MsoScopeHandle.query("*OPC?")
 
 MsoScopeHandle.close()
 rm.close()
+
+print('\n>>>> Your MSO scope is ready to run, hit the "Burst" button in the AFG dialog.\n')
 
