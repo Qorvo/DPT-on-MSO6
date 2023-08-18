@@ -4,7 +4,7 @@ import time
 import re
 import pyvisa
 
-verNum = "v1.03, Feb 18, 2023"
+verNum = "v1.04, Aug 18, 2023"
 mainAuthor = "Masashi Nogawa @ Qorvo"
 debug = 0
 
@@ -361,8 +361,21 @@ MsoScopeHandle.query("*OPC?")
 MsoScopeHandle.write('AFG:Period ' + str(c) + 'e-7')
 MsoScopeHandle.query("*OPC?")
 
+MsoScopeHandle.write('CALLOUTS:CALLOUT1')
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:COLOR "#FFFFFF"')
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:BOOKMARK:SOURCE CH1')
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:DISPLAYPOSition:X 78')
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:DISPLAYPOSition:Y 88')
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:FONT:BOLD')
+
+an = str(ton1) + "us-" + str(tof1) + "us-" + str(ton2) + "us"
+if len(args) == 7:
+    an = an + "-" + str(tof2) + "us-" + str(ton3) + "us"
+MsoScopeHandle.write('CALLOUTS:CALLOUT1:TEXT "' + an + '"')
+
 MsoScopeHandle.close()
 rm.close()
 
 print('\n>>>> Your MSO scope is ready to run, hit the "Burst" button in the AFG dialog.\n')
+
 
