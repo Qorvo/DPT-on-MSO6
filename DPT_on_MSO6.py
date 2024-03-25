@@ -130,7 +130,7 @@ if not os.path.isfile(lfile):
 args = sys.argv
 
 ########################################################
-rm = pyvisa.ResourceManager()
+rm = pyvisa.ResourceManager('@py')
 # print(rm)
 
 list = rm.list_resources()
@@ -341,14 +341,15 @@ MsoScopeHandle.query("*OPC?")
 
 #    print(MSO6.query('FileSystem:Dir?'))
 
-#MsoScopeHandle.write('AFG:Output:Load:Impedance Fifty')
-#MsoScopeHandle.query("*OPC?")
+MsoScopeHandle.write('AFG:Output:Load:Impedance Fifty')
+MsoScopeHandle.query("*OPC?")
 #MSO6.write('AFG:Amplitude 3.3;:AFG:Offset 1.65')
 #MsoScopeHandle.query("*OPC?")
 
 MsoScopeHandle.write('AFG:OUTPut:LOAd:IMPEDance HIGHZ')
 MsoScopeHandle.query("*OPC?")
-MsoScopeHandle.write('AFG:LowLevel 0;:AFG:HighLevel 5')
+#MsoScopeHandle.write('AFG:LowLevel 0;:AFG:HighLevel 5')
+MsoScopeHandle.write('AFG:Amplitude 3.3;:AFG:Offset 1.65')
 MsoScopeHandle.query("*OPC?")
 MsoScopeHandle.write('AFG:Function Arb')
 MsoScopeHandle.query("*OPC?")
